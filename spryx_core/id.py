@@ -13,9 +13,11 @@ import uuid
 from typing import Final, NewType
 
 try:
-    import ulid
+    import ulid as ulid_lib
+
+    _has_ulid = True
 except ImportError:
-    ulid = None
+    _has_ulid = False
 
 # Custom type for entity IDs
 EntityId = NewType("EntityId", str)
@@ -31,8 +33,9 @@ def generate_entity_id() -> EntityId:
     Returns:
         EntityId: A new ULID as a string (falls back to UUID4 if ULID is not available)
     """
-    if ulid is not None:
-        return EntityId(str(ulid.new()))
+    if _has_ulid:
+        # Use ulid package to generate a new ULID
+        return EntityId(str(ulid_lib.ULID()))
     return EntityId(str(uuid.uuid4()))
 
 

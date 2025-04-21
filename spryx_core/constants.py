@@ -8,4 +8,4 @@ such as sentinel instances.
 from spryx_core.sentinels import NotGiven
 
 # Singleton instance of NotGiven sentinel
-NOT_GIVEN = NotGiven()
+NOT_GIVEN = NotGiven
