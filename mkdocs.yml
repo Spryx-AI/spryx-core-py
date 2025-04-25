@@ -1,9 +1,9 @@
 site_name: Spryx Core
 site_description: Core utilities and types for Spryx projects
 site_author: Spryx Team
-site_url: https://ppcantidio.github.io/spryx-core-py/
+site_url: https://spryx-ai.github.io/spryx-core-py/
 
-repo_url: https://github.com/ppcantidio/spryx-core-py
+repo_url: https://github.com/spryx-ai/spryx-core-py
 repo_name: spryx-core-py
 
 theme:
@@ -68,6 +68,6 @@ watch:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ppcantidio/spryx-core-py
+      link: https://github.com/spryx-ai/spryx-core-py
   
 copyright: Copyright &copy; 2024 Spryx Team

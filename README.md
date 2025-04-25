@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/spryx-core.svg)](https://pypi.org/project/spryx-core/)
 [![Python versions](https://img.shields.io/pypi/pyversions/spryx-core.svg)](https://pypi.org/project/spryx-core/)
-[![Documentation Status](https://github.com/ppcantidio/spryx-core-py/actions/workflows/docs.yml/badge.svg)](https://ppcantidio.github.io/spryx-core-py/)
+[![Documentation Status](https://github.com/spryx-ai/spryx-core-py/actions/workflows/docs.yml/badge.svg)](https://spryx-ai.github.io/spryx-core-py/)
 
 Core utilities and types for Spryx projects.
 
@@ -32,7 +32,7 @@ pip install "spryx-core[ulid]"
 
 ## Documentation
 
-The full documentation is available at [https://ppcantidio.github.io/spryx-core-py/](https://ppcantidio.github.io/spryx-core-py/)
+The full documentation is available at [https://spryx-ai.github.io/spryx-core-py/](https://spryx-ai.github.io/spryx-core-py/)
 
 ### Local Documentation
 
@@ -75,7 +75,7 @@ print(f"Current page: {page.page}, Total pages: {page.total_pages}")
 
 ## Development
 
-See the [Contributing Guide](https://ppcantidio.github.io/spryx-core-py/development/contributing/) for instructions on how to set up the development environment and contribute to the project.
+See the [Contributing Guide](https://spryx-ai.github.io/spryx-core-py/development/contributing/) for instructions on how to set up the development environment and contribute to the project.
 
 ## License
 
