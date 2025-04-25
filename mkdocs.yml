@@ -38,6 +38,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths: ["."]
           options:
             show_source: true
             heading_level: 3
