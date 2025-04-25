@@ -1,0 +1,63 @@
+site_name: Spryx Core
+site_description: Core utilities and types for Spryx projects
+site_author: Spryx Team
+
+repo_url: https://github.com/ppcantidio/spryx-core-py
+repo_name: spryx-core-py
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - tables
+  - def_list
+  - attr_list
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            heading_level: 3
+            show_category_heading: true
+            show_submodules: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API Reference:
+    - Overview: api/index.md
+    - ID: api/id.md
+    - Time: api/time.md
+    - Pagination: api/pagination.md
+    - Types: api/types.md
+    - Constants: api/constants.md
+    - Sentinels: api/sentinels.md
+    - Enums: api/enums.md
+    - Errors: api/errors.md
+    - Permissions: api/permissions.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Release Notes: development/release-notes.md
+
+watch:
+  - spryx_core
