@@ -14,7 +14,7 @@ Spryx Core is a Python library that provides common utilities and type definitio
 - Pagination models for API responses
 - Type definitions and sentinel values
 - Common error classes
-- Permission handling utilities
+- Security utilities (permissions, token claims validation)
 
 ## Installation
 
@@ -25,7 +25,7 @@ pip install spryx-core
 ## Quick Usage
 
 ```python
-from spryx_core import generate_entity_id, now_utc, to_iso, Page
+from spryx_core import generate_entity_id, now_utc, to_iso, Page, Permission
 
 # Generate unique IDs
 entity_id = generate_entity_id()
@@ -44,6 +44,10 @@ page = Page(
     total=25
 )
 print(f"Current page: {page.page}, Total pages: {page.total_pages}")
+
+# Work with permissions
+user_perms = [Permission.READ_USERS, Permission.READ_ORDERS]
+can_write = Permission.WRITE_USERS in user_perms  # False
 ```
 
 ## Features

@@ -57,7 +57,7 @@ nav:
     - Sentinels: api/sentinels.md
     - Enums: api/enums.md
     - Errors: api/errors.md
-    - Permissions: api/permissions.md
+    - Security: api/security.md
   - Development:
     - Contributing: development/contributing.md
     - Release Notes: development/release-notes.md

@@ -109,6 +109,60 @@ result3 = update_user()                   # {}
 value = default_or_given(NOT_GIVEN, "default_value")  # Returns "default_value"
 ```
 
+### Security Utilities
+
+Spryx Core provides security-related utilities for permission handling and JWT token validation:
+
+```python
+from spryx_core import Permission, UserClaims, TokenClaims
+from datetime import datetime, timedelta, UTC
+import json
+
+# Working with permissions
+def check_user_access(user_permissions, required_permission):
+    return required_permission in user_permissions
+
+user_permissions = [Permission.READ_USERS, Permission.READ_ORDERS]
+can_read_users = check_user_access(user_permissions, Permission.READ_USERS)  # True
+can_write_users = check_user_access(user_permissions, Permission.WRITE_USERS)  # False
+
+# Working with JWT claims
+# Example JWT payload
+claims_data = {
+    "iss": "spryx-auth",
+    "sub": "user123",
+    "aud": "my-app",
+    "iat": datetime.now(UTC),
+    "exp": datetime.now(UTC) + timedelta(hours=1),
+    "token_type": "user",
+    "permissions": ["users:read", "orders:read"]
+}
+
+# Convert datetime to string for this example (JWT libraries would handle this)
+serializable_data = {
+    **claims_data,
+    "iat": claims_data["iat"].isoformat(),
+    "exp": claims_data["exp"].isoformat()
+}
+json_data = json.dumps(serializable_data)
+
+# In a real app, you would decode JWT and then:
+parsed_data = json.loads(json_data)
+# Convert back string dates to datetime for validation
+parsed_data["iat"] = datetime.fromisoformat(parsed_data["iat"])
+parsed_data["exp"] = datetime.fromisoformat(parsed_data["exp"])
+
+# Validate claims
+try:
+    # This automatically discriminates between UserClaims and AppClaims
+    token_claims = TokenClaims.model_validate(parsed_data)
+    # Access user-specific fields
+    if hasattr(token_claims, "permissions"):
+        print(f"User permissions: {token_claims.permissions}")
+except Exception as e:
+    print(f"Invalid token: {e}")
+```
+
 ### Environment Enums
 
 Control environment-specific behavior:

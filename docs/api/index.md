@@ -16,7 +16,7 @@ Spryx Core is organized into several modules, each focused on a specific functio
 | [`sentinels`](sentinels.md) | Sentinel value implementations |
 | [`enums`](enums.md) | Enumerated values used throughout the library |
 | [`errors`](errors.md) | Common error classes |
-| [`permissions`](permissions.md) | Permission handling utilities |
+| [`security`](security.md) | Security utilities including permissions and token claims |
 
 ## Import Structure
 
@@ -32,6 +32,9 @@ from spryx_core import (
     
     # Pagination
     Page,
+    
+    # Security
+    Permission, AppClaims, UserClaims, TokenClaims,
     
     # Sentinels
     NOT_GIVEN, NotGiven,
@@ -51,7 +54,10 @@ For less commonly used functions or more specialized use cases, you can import f
 from spryx_core.time import utc_from_timestamp
 
 # For specific error classes
-from spryx_core.errors import SpryxError, ValidationError
+from spryx_core.errors import SpryxError
+
+# For detailed security features
+from spryx_core.security import BaseClaims
 ```
 
 ## API Stability
