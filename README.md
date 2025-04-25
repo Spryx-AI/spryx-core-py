@@ -1,6 +1,21 @@
-# spryx-core
+# Spryx Core
 
-A Python package providing core utilities and types for Spryx projects.
+[![PyPI version](https://img.shields.io/pypi/v/spryx-core.svg)](https://pypi.org/project/spryx-core/)
+[![Python versions](https://img.shields.io/pypi/pyversions/spryx-core.svg)](https://pypi.org/project/spryx-core/)
+[![Documentation Status](https://github.com/ppcantidio/spryx-core-py/actions/workflows/docs.yml/badge.svg)](https://ppcantidio.github.io/spryx-core-py/)
+
+Core utilities and types for Spryx projects.
+
+## Overview
+
+Spryx Core provides common utilities and type definitions used across Spryx projects, including:
+
+- ID generation and validation using ULIDs
+- Time manipulation and formatting utilities
+- Pagination models for API responses
+- Type definitions and sentinel values
+- Common error classes
+- Permission handling utilities
 
 ## Installation
 
@@ -8,11 +23,63 @@ A Python package providing core utilities and types for Spryx projects.
 pip install spryx-core
 ```
 
-Or with Poetry:
+For development or optional features:
 
 ```bash
-poetry add spryx-core
+# For ULID support (recommended for ID generation)
+pip install "spryx-core[ulid]"
 ```
+
+## Documentation
+
+The full documentation is available at [https://ppcantidio.github.io/spryx-core-py/](https://ppcantidio.github.io/spryx-core-py/)
+
+### Local Documentation
+
+You can also build and view the documentation locally:
+
+```bash
+# Install documentation dependencies
+pip install mkdocs-material "mkdocstrings[python]"
+
+# Serve documentation locally
+mkdocs serve
+
+# Build documentation
+mkdocs build
+```
+
+## Quick Usage
+
+```python
+from spryx_core import generate_entity_id, now_utc, to_iso, Page
+
+# Generate unique IDs
+entity_id = generate_entity_id()
+print(entity_id)  # Example: 01HNJG7VWTZA0CGTJ9T7WG9CPB
+
+# Work with UTC timestamps
+current_time = now_utc()
+iso_timestamp = to_iso(current_time)
+print(iso_timestamp)  # Example: 2023-12-01T14:32:15.123456Z
+
+# Create paginated responses
+page = Page(
+    items=["item1", "item2"],
+    page=1,
+    page_size=10,
+    total=25
+)
+print(f"Current page: {page.page}, Total pages: {page.total_pages}")
+```
+
+## Development
+
+See the [Contributing Guide](https://ppcantidio.github.io/spryx-core-py/development/contributing/) for instructions on how to set up the development environment and contribute to the project.
+
+## License
+
+MIT
 
 ## Features
 
