@@ -13,6 +13,10 @@ from typing import Annotated, Literal, Union
 
 from pydantic import BaseModel, Field, model_validator
 
+from spryx_core.enums import PlatformRole
+from spryx_core.id import EntityId
+from spryx_core.security.value_objects import CurrentOrganization
+
 from .permissions import Permission
 
 
@@ -51,9 +55,16 @@ class UserClaims(BaseClaims):
     token_type: Literal["user"] = Field(
         ..., description="Must be 'user' for user tokens"
     )
-    permissions: list[Permission] = Field(
-        default_factory=list, description="User's permissions"
+    name: str = Field(..., description="Name of the user")
+    email: str = Field(..., description="Email of the user")
+    image: str = Field(..., description="Image of the user")
+    current_organization: CurrentOrganization = Field(
+        ..., description="Current organization of the user"
     )
+    allowed_org_ids: list[EntityId] = Field(
+        default_factory=list, description="IDs of organizations the user has access to"
+    )
+    platform_role: PlatformRole = Field(..., description="Role of the user")
 
 
 class AppClaims(BaseClaims):
@@ -62,8 +73,8 @@ class AppClaims(BaseClaims):
     token_type: Literal["app"] = Field(
         ..., description="Must be 'app' for application tokens"
     )
-    scopes: list[str] = Field(
-        default_factory=list, description="Application's OAuth scopes"
+    permissions: list[Permission] = Field(
+        default_factory=list, description="Application's permissions"
     )
 
 
