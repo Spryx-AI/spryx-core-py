@@ -30,10 +30,3 @@ class Environment(StrEnum):
     DEV = "dev"  # Development environment
     STAGING = "staging"  # Staging/testing environment
     PRODUCTION = "production"  # Production environment
-
-
-class PlatformRole(StrEnum):
-    """Role of a user in the platform."""
-
-    ADMIN = "admin"
-    USER = "user"
