@@ -1,7 +1,13 @@
+from enum import StrEnum
+
 from pydantic import BaseModel, Field
 
 from spryx_core.id import EntityId
 from spryx_core.security.permissions import Permission
+
+
+class PlatformPermission(StrEnum):
+    CREATE_ORGANIZATION = "create_organization"
 
 
 class OrganizationRole(BaseModel):

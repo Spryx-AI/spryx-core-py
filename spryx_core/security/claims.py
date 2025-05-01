@@ -9,11 +9,10 @@ used in Spryx authentication system. It includes models for different token type
 from __future__ import annotations
 
 from datetime import UTC, datetime
-from typing import Annotated, Literal, Union
+from typing import Annotated, Literal, Optional, Union, get_args
 
 from pydantic import BaseModel, Field, model_validator
 
-from spryx_core.enums import PlatformRole
 from spryx_core.id import EntityId
 from spryx_core.security.value_objects import CurrentOrganization
 
@@ -38,6 +37,7 @@ class BaseClaims(_CoreModel):
     sub: str = Field(..., description="Subject of the token (user or app ID)")
     aud: str = Field(..., description="Audience for the token (client ID)")
     iat: datetime = Field(..., description="Issued at timestamp")
+    jti: str = Field(..., description="JWT ID")
     exp: datetime = Field(..., description="Expiration timestamp")
     token_type: str = Field(..., frozen=True, description="Type of token (user or app)")
 
@@ -57,14 +57,14 @@ class UserClaims(BaseClaims):
     )
     name: str = Field(..., description="Name of the user")
     email: str = Field(..., description="Email of the user")
-    image: str = Field(..., description="Image of the user")
-    current_organization: CurrentOrganization = Field(
-        ..., description="Current organization of the user"
+    image: Optional[str] = Field(None, description="Image of the user")
+    current_organization: Optional[CurrentOrganization] = Field(
+        None, description="Current organization of the user"
     )
     allowed_org_ids: list[EntityId] = Field(
         default_factory=list, description="IDs of organizations the user has access to"
     )
-    platform_role: PlatformRole = Field(..., description="Role of the user")
+    platform_role: str = Field(..., description="Role of the user")
 
 
 class AppClaims(BaseClaims):
@@ -83,3 +83,4 @@ TokenClaims = Annotated[
     Union[UserClaims, AppClaims],
     Field(discriminator="token_type"),
 ]
+TOKEN_CLAIMS_TYPES = get_args(TokenClaims)
