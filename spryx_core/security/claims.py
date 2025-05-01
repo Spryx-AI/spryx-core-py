@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field, model_validator
 from spryx_core.id import EntityId
 from spryx_core.security.value_objects import CurrentOrganization
 
-from .permissions import Permission
+from .permissions import Permission, PlatformPermission
 
 
 class _CoreModel(BaseModel):
@@ -65,6 +65,9 @@ class UserClaims(BaseClaims):
         default_factory=list, description="IDs of organizations the user has access to"
     )
     platform_role: str = Field(..., description="Role of the user")
+    platform_permissions: list[PlatformPermission] = Field(
+        default_factory=list, description="Permissions of the user"
+    )
 
 
 class AppClaims(BaseClaims):

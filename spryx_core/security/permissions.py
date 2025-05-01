@@ -73,3 +73,9 @@ class Permission(StrEnum):
             user_permissions_set = user_permissions
 
         return required_permissions_set.issubset(user_permissions_set)
+
+
+@unique
+class PlatformPermission(StrEnum):
+    CREATE_ORGANIZATION = "create_organization"
+    CREATE_APPLICATION = "create_application"
