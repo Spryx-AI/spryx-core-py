@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field, model_validator
 from spryx_core.id import EntityId
 from spryx_core.security.value_objects import CurrentOrganization
 
-from .permissions import Permission, PlatformPermission
+from .permissions import PlatformPermission
 
 
 class _CoreModel(BaseModel):
@@ -75,9 +75,6 @@ class AppClaims(BaseClaims):
 
     token_type: Literal["app"] = Field(
         ..., description="Must be 'app' for application tokens"
-    )
-    permissions: list[Permission] = Field(
-        default_factory=list, description="Application's permissions"
     )
 
 
