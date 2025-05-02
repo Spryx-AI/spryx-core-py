@@ -1,6 +1,6 @@
 [project]
 name = "spryx-core"
-version = "0.1.9"
+version = "0.1.10"
 description = "Core utilities and types for Spryx projects"
 authors = [
     {name = "Pedro Cantidio",email = "ppcantidio@gmail.com"}
