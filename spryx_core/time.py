@@ -101,3 +101,10 @@ def end_of_day(dt: datetime | None = None) -> datetime:
         datetime: End of day (1 microsecond before midnight) in UTC timezone
     """
     return start_of_day(dt) + timedelta(days=1, microseconds=-1)
+
+
+def timestamp_from_iso(iso: str) -> int:
+    """
+    Convert an ISO-8601 UTC string to a UNIX timestamp.
+    """
+    return int(parse_iso(iso).timestamp())

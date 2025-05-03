@@ -5,11 +5,13 @@ This module provides standardized models for implementing and handling paginated
 results in APIs and data retrieval operations.
 """
 
+from typing import Generic, List, Literal, Optional, TypeAlias, TypeVar
+
 from pydantic import BaseModel, Field, computed_field
-from typing import Generic, List, Optional, TypeVar, Literal, TypeAlias
 
 T = TypeVar("T")
 SortOrder: TypeAlias = Literal["asc", "desc"]
+
 
 class Page(BaseModel, Generic[T]):
     """
@@ -50,6 +52,7 @@ class Page(BaseModel, Generic[T]):
     def previous_page(self) -> Optional[int]:
         """Get the previous page number, if available."""
         return self.page - 1 if self.has_previous else None
+
 
 class PageFilter(BaseModel):
     page: int = Field(default=1, gt=0)
