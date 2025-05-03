@@ -126,6 +126,7 @@ class PlatformPermission(StrEnum):
     CREATE_ORGANIZATION = "organization:create"
     LIST_ORGANIZATIONS = "organization:list"
     READ_ORGANIZATION = "organization:read"
+    
     UPDATE_ORGANIZATION = "organization:update"
     DELETE_ORGANIZATION = "organization:delete"
 
