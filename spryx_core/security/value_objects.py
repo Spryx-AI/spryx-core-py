@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+from typing import List
 from spryx_core.id import EntityId
 from spryx_core.security.permissions import Permission
 
@@ -9,7 +10,7 @@ class OrganizationRole(BaseModel):
 
     # id: EntityId = Field(..., description="ID of the role")
     name: str = Field(..., description="Name of the role")
-    permissions: set[Permission] = Field(..., description="Permissions of the role")
+    permissions: List[str] = Field(..., description="Permissions of the role")
 
 
 class CurrentOrganization(BaseModel):
