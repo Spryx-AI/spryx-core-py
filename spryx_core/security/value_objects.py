@@ -7,7 +7,6 @@ from spryx_core.security.permissions import Permission
 class OrganizationRole(BaseModel):
     """Role of a user in an organization."""
 
-    id: EntityId = Field(..., description="ID of the role")
     name: str = Field(..., description="Name of the role")
     permissions: set[Permission] = Field(..., description="Permissions of the role")
 
