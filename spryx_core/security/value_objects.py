@@ -10,7 +10,7 @@ class OrganizationRole(BaseModel):
 
     # id: EntityId = Field(..., description="ID of the role")
     name: str = Field(..., description="Name of the role")
-    permissions: List[str] = Field(..., description="Permissions of the role")
+    permissions: List[str] = Field(..., description="Permissions of the role") 
 
 
 class CurrentOrganization(BaseModel):
