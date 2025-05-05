@@ -56,6 +56,8 @@ class Permission(StrEnum):
     LIST_CHANNELS = "channel:list"
     UPDATE_CHANNEL = "channel:update"
     DELETE_CHANNEL = "channel:delete"
+    CONNECT_CHANNEL = "channel:connect"
+    DISCONNECT_CHANNEL = "channel:disconnect"
 
     CREATE_CONTACT = "contact:create"
     READ_CONTACT = "contact:read"
