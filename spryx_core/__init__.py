@@ -7,15 +7,24 @@ including ID generation, time handling, sentinel values, security utilities, and
 
 from spryx_core.constants import NOT_GIVEN
 from spryx_core.enums import Environment, SortOrder
+from spryx_core.errors import SpryxError, SpryxErrorDict
 from spryx_core.id import EntityId, cast_entity_id, generate_entity_id, is_valid_ulid
 from spryx_core.pagination import Page
-from spryx_core.security import AppClaims, Permission, TokenClaims, UserClaims
+from spryx_core.security import (
+    AppClaims,
+    CurrentOrganization,
+    OrganizationRole,
+    Permission,
+    TokenClaims,
+    UserClaims,
+)
 from spryx_core.sentinels import NotGiven
 from spryx_core.time import (
     end_of_day,
     now_utc,
     parse_iso,
     start_of_day,
+    timestamp_from_iso,
     to_iso,
     utc_from_timestamp,
 )
@@ -27,6 +36,9 @@ __all__ = [
     # Enums
     "Environment",
     "SortOrder",
+    # Errors
+    "SpryxError",
+    "SpryxErrorDict",
     # ID
     "EntityId",
     "cast_entity_id",
@@ -36,6 +48,8 @@ __all__ = [
     "Page",
     # Security
     "AppClaims",
+    "CurrentOrganization",
+    "OrganizationRole",
     "Permission",
     "TokenClaims",
     "UserClaims",
@@ -46,6 +60,7 @@ __all__ = [
     "now_utc",
     "parse_iso",
     "start_of_day",
+    "timestamp_from_iso",
     "to_iso",
     "utc_from_timestamp",
     # Types

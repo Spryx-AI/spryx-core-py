@@ -84,3 +84,12 @@ TokenClaims = Annotated[
     Field(discriminator="token_type"),
 ]
 TOKEN_CLAIMS_TYPES = get_args(TokenClaims)
+
+
+def is_app_claims(claims: TokenClaims) -> bool:
+    """Check if the token claims are for an application token."""
+    return claims.token_type == "app"
+
+
+def is_user_claims(claims: TokenClaims) -> bool:
+    """Check if the token claims are for a user token."""

@@ -7,6 +7,7 @@ token claims, and related utilities.
 
 from spryx_core.security.claims import AppClaims, BaseClaims, TokenClaims, UserClaims
 from spryx_core.security.permissions import Permission
+from spryx_core.security.value_objects import CurrentOrganization, OrganizationRole
 
 __all__ = [
     # Claims
@@ -16,4 +17,7 @@ __all__ = [
     "UserClaims",
     # Permissions
     "Permission",
+    # Value Objects
+    "CurrentOrganization",
+    "OrganizationRole",
 ]
