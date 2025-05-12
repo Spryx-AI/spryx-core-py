@@ -14,10 +14,10 @@ from spryx_core.security import (
     AppClaims,
     CurrentOrganization,
     OrganizationRole,
-    Permission,
     TokenClaims,
     UserClaims,
 )
+from spryx_core.security.claims import AccessToken
 from spryx_core.sentinels import NotGiven
 from spryx_core.time import (
     end_of_day,
@@ -31,6 +31,7 @@ from spryx_core.time import (
 from spryx_core.types import NotGivenOr, default_or_given, is_given
 
 __all__ = [
+    "AccessToken",
     # Constants
     "NOT_GIVEN",
     # Enums
@@ -50,7 +51,6 @@ __all__ = [
     "AppClaims",
     "CurrentOrganization",
     "OrganizationRole",
-    "Permission",
     "TokenClaims",
     "UserClaims",
     # Sentinels

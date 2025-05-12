@@ -5,19 +5,8 @@ This module provides security-related functionality like permission handling,
 token claims, and related utilities.
 """
 
-from spryx_core.security.claims import AppClaims, BaseClaims, TokenClaims, UserClaims
-from spryx_core.security.permissions import Permission
-from spryx_core.security.value_objects import CurrentOrganization, OrganizationRole
+from spryx_core.security.claims import AccessToken
 
 __all__ = [
-    # Claims
-    "AppClaims",
-    "BaseClaims",
-    "TokenClaims",
-    "UserClaims",
-    # Permissions
-    "Permission",
-    # Value Objects
-    "CurrentOrganization",
-    "OrganizationRole",
+    "AccessToken",
 ]
