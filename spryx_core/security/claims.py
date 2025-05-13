@@ -52,8 +52,8 @@ class AccessToken(_CoreModel):
     # Custom
     ver: int = Field(1, description="Schema version")
     meta: Meta
-    plt_context: PltContext
-    org_context: OrgContext
+    plt_context: PltContext | None = None
+    org_context: OrgContext | None = None
 
     @model_validator(mode="after")
     def _check_exp(self):
