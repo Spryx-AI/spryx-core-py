@@ -1,5 +1,6 @@
 from datetime import datetime
 from enum import Enum
+from typing import Optional
 from zoneinfo import ZoneInfo
 
 from pydantic import BaseModel, Field, model_validator
@@ -36,6 +37,7 @@ class PltContext(_CoreModel):
 class OrgContext(_CoreModel):
     id: str
     role_id: str
+    status: Optional[str] = None
     scopes: list[str]
 
 
