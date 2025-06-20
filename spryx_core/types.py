@@ -4,14 +4,14 @@ Type definitions and utilities.
 This module provides type utilities for working with optional values and the NotGiven sentinel.
 """
 
-from typing import Any, Type, TypeGuard, TypeVar, Union
+from typing import Any, TypeGuard, TypeVar, Union
 
-from spryx_core.sentinels import NotGiven
+from spryx_core.sentinels import NotGiven, _SentinelBase
 
 _T = TypeVar("_T")
 
 # Union type for values that can be NotGiven
-NotGivenOr = Union[_T, Type[NotGiven]]
+NotGivenOr = Union[_T, _SentinelBase]
 
 
 def is_given(obj: NotGivenOr[_T]) -> TypeGuard[_T]:
