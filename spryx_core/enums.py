@@ -30,3 +30,4 @@ class Environment(StrEnum):
     DEV = "dev"  # Development environment
     STAGING = "staging"  # Staging/testing environment
     PRODUCTION = "production"  # Production environment
+    TEST = "test"  # Test environment
